@@ -1,20 +1,26 @@
+"use client";
 import FacebookIcon from "@/components/Common/Icons/Facebook";
 import GoogleIcon from "@/components/Common/Icons/Google";
 import LogoIcon from "@/components/Common/Icons/logo";
 import WidthClamp from "@/components/UI/Shared/width-clamp";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Account = () => {
+  const router = useRouter();
+
   return (
     <>
       <main>
         <WidthClamp>
-          <Link href={"/"}>
-            <div className="flex items-center gap-4 py-20 cursor-pointer">
-              <LogoIcon />
-              <p className="font-bold text-blueAccent">HelpMeOut</p>
-            </div>
-          </Link>
+          <div className="inline-block">
+            <Link href={"/"}>
+              <div className="flex items-center gap-4 py-12 cursor-pointer">
+                <LogoIcon />
+                <p className="font-bold text-blueAccent">HelpMeOut</p>
+              </div>
+            </Link>
+          </div>
         </WidthClamp>
 
         <div className="max-w-2xl mx-auto mb-20">
@@ -28,14 +34,20 @@ const Account = () => {
           <div className="max-w-md mx-auto my-10">
             <div className="space-y-4">
               <div className="flex justify-center w-full">
-                <button className="flex items-center justify-center w-full gap-4 py-3 border-2 border-black rounded-lg">
+                <button
+                  className="flex items-center justify-center w-full gap-4 py-3 border-2 border-black rounded-lg"
+                  onClick={() => router.push("/dashboard")}
+                >
                   <GoogleIcon />
                   <span>Continue with Google</span>
                 </button>
               </div>
 
               <div className="flex justify-center w-full">
-                <button className="flex items-center justify-center w-full gap-4 py-3 border-2 border-black rounded-lg">
+                <button
+                  className="flex items-center justify-center w-full gap-4 py-3 border-2 border-black rounded-lg"
+                  onClick={() => router.push("/dashboard")}
+                >
                   <FacebookIcon />
                   <span>Continue with Facebook</span>
                 </button>
@@ -73,7 +85,12 @@ const Account = () => {
                     />
                   </div>
 
-                  <button className="w-full py-3 text-white rounded-xl bg-blueAccent">Sign Up</button>
+                  <button
+                    className="w-full py-3 text-white rounded-xl bg-blueAccent"
+                    onClick={() => router.push("/dashboard")}
+                  >
+                    Sign Up
+                  </button>
                 </div>
               </form>
             </div>
